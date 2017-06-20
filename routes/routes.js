@@ -3,6 +3,10 @@ const fs = require('fs');
 
 var appRouter = function(app) {
 
+  app.get("/", function(req, res) {
+    res.send("Hello World");
+  });
+
   app.get("/v2/index", function(req, res) {
     logRequest(req);
     const fileLoc = path.join(__dirname,"data/index.json");
