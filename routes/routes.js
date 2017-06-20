@@ -10,6 +10,14 @@ var appRouter = function(app) {
     addStdErrorHandling(stream,res);
     stream.pipe(res);
   });
+
+  app.get("/destination/v3", function(req, res) {
+    logRequest(req);
+    const fileLoc = path.join(__dirname,"data/destination.json");
+    const stream = fs.createReadStream(fileLoc);
+    addStdErrorHandling(stream,res);
+    stream.pipe(res);
+  });
 }
 
 function addStdErrorHandling(stream,res){
