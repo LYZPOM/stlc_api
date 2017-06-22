@@ -7,9 +7,9 @@ var appRouter = function(app) {
     res.send("Hello World");
   });
 
-  app.get("/v2/index", function(req, res) {
+  app.get("/index", function(req, res) {
     logRequest(req);
-    const fileLoc = path.join(__dirname,"data/index.json");
+    const fileLoc = path.join(__dirname,"data/rec_events.json");
     const stream = fs.createReadStream(fileLoc);
     addStdErrorHandling(stream,res);
     stream.pipe(res);
